@@ -1,0 +1,39 @@
+.corruption-order-modal {
+	z-index: 2000 !important;
+}
+
+.corruption-order-row {
+	padding: 4px 6px;
+	margin: 2px 0;
+	border-radius: 4px;
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+.corruption-order-row-disabled {
+	opacity: 0.5;
+}
+
+.corruption-order-drag-handle {
+	cursor: grab;
+	padding: 0 8px;
+	font-size: 1.1em;
+}
+
+.corruption-order-icon {
+	margin-right: 8px;
+	border-radius: 3px;
+}
+
+.corruption-order-name {
+	margin-right: 8px;
+}
+
+.corruption-order-row .sortable-ghost {
+	opacity: 0.3;
+}
+
+.corruption-order-randomize-active .corruption-order-drag-handle {
+	opacity: 0.3;
+	cursor: not-allowed;
+	pointer-events: none;
+}

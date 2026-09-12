@@ -1,0 +1,39 @@
+<!-- randomize, rows: [...{id, name, media, enabled}], handlers -->
+<template id="corruption-order-modal-content">
+	<div>
+		<div class="custom-control custom-switch mb-3">
+			<input
+				type="checkbox"
+				class="custom-control-input"
+				id="corruption-order-randomize-toggle"
+				:checked="randomize"
+				@change="handlers.toggleRandomize($event.target.checked)"
+			/>
+			<label class="custom-control-label" for="corruption-order-randomize-toggle">
+				Randomize Activation Order (ignore the order below)
+			</label>
+		</div>
+		<div id="corruption-order-rows-list" :class="{ 'corruption-order-randomize-active': randomize }">
+			<div
+				v-for="row in rows"
+				class="corruption-order-row d-flex align-items-center"
+				:class="{ 'corruption-order-row-disabled': !row.enabled }"
+				:data-corruption="row.id"
+			>
+				<span class="corruption-order-drag-handle">&#9776;</span>
+				<img :src="row.media" width="28" height="28" class="corruption-order-icon" />
+				<span class="corruption-order-name flex-grow-1">{{ row.name }}</span>
+				<div class="custom-control custom-switch">
+					<input
+						type="checkbox"
+						class="custom-control-input"
+						:id="'corruption-order-toggle-' + row.id"
+						:checked="row.enabled"
+						@change="handlers.toggleEnabled(row.id, $event.target.checked)"
+					/>
+					<label class="custom-control-label" :for="'corruption-order-toggle-' + row.id"></label>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
