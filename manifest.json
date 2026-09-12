@@ -1,5 +1,5 @@
 {
-    "namespace": "melvor_corruption",
+    "namespace": "multi_corruption",
     "version": "2.0.0",
     "description": "Reworks Corruption so each proc guarantees a new corruption and raises the Corruption Counter threshold afterward, with two settings controlling the threshold math: a Growth Multiplier for the increase per proc (default 1.44x) and an Initial Multiplier that scales the starting threshold before the first corruption (default 1x). A Free Auto-Corruption setting makes the vanilla 'Automatically Corrupt Monsters on Spawn?' option cost no Soul Points. Adds a Configure Activation Order button to the game's own Corruption panel in combat, opening a popup where you can toggle individual unlocked corruptions on/off, drag them into a custom activation order, and flip a Randomize switch to fall back to random selection at any time.",
     "setup": "setup.mjs",
