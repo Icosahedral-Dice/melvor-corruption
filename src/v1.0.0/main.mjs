@@ -1,4 +1,4 @@
-const SETTINGS_SECTION = 'Corruption Juggernaut';
+const SETTINGS_SECTION = 'Melvor Corruption';
 const CORRUPTION_COUNTER_ID = 'melvorItA:CorruptionCounter';
 
 export async function setup(ctx) {
@@ -21,11 +21,25 @@ export async function setup(ctx) {
 			default: 1,
 			min: 0.1,
 			max: 10
+		},
+		{
+			type: 'switch',
+			name: 'free-auto-corruption',
+			label: 'Free Auto-Corruption',
+			hint: 'When on, the vanilla "Automatically Corrupt Monsters on Spawn?" option costs no Soul Points.',
+			default: false
 		}
 	]);
 
 	const orderUIModule = await ctx.loadModule('src/v1.0.0/orderUI.mjs');
 	const order = await orderUIModule.setupOrderUI(ctx);
+
+	patch(CombatManager, 'getAutoCorruptionCost').after(function (cost) {
+		if (settings.section(SETTINGS_SECTION).get('free-auto-corruption')) {
+			return 0;
+		}
+		return cost;
+	});
 
 	patch(ActiveCombatEffect, 'init').before(function () {
 		if (!(this.character instanceof Player) || this.effect.id !== CORRUPTION_COUNTER_ID) {

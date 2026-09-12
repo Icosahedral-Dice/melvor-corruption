@@ -1,18 +1,20 @@
 # melvor-corruption
 Allow multiple corruptions to stack, in random or user-specified order.
 
-## Corruption Juggernaut rework
+## Corruption threshold rework
 
-A customizable rework of `corruption_reworked_juggernaut-1brl`: each time the player
-gets corrupted, a new guaranteed-random corruption is applied and the Corruption
-Counter's threshold grows. Two settings (under "Corruption Juggernaut" in Mod
-Settings) control the threshold math:
+Inspired by `corruption_reworked_juggernaut-1brl` (aka "Corruption Juggernaut"):
+each time the player gets corrupted, a new guaranteed corruption is applied and
+the Corruption Counter's threshold grows. Settings (under "Melvor Corruption" in
+Mod Settings) control the threshold math and auto-corruption cost:
 
 - **Growth Multiplier** (default `1.44`) — scales the Corruption Counter threshold
   each time a corruption is applied.
 - **Initial Multiplier** (default `1`) — a one-time scale applied to the vanilla
   threshold the moment it is first granted, before any corruption has happened
   this fight.
+- **Free Auto-Corruption** (default off) — when on, the vanilla "Automatically
+  Corrupt Monsters on Spawn?" option costs no Soul Points.
 
 ## Corruption Order panel
 
